@@ -121,8 +121,8 @@ def get_settings() -> Settings:
     private_channels = parse_private_channels(os.getenv("REQUIRED_CHANNELS_PRIVATE", ""))
     channels = public_channels + private_channels
     try:
-        reward = int(os.getenv("REFERRAL_REWARD", "5"))
-        minimum = int(os.getenv("MIN_WITHDRAWAL", "100"))
+        reward = int(os.getenv("REFERRAL_REWARD", "3"))
+        minimum = int(os.getenv("MIN_WITHDRAWAL", "15"))
     except ValueError as error:
         raise RuntimeError("REFERRAL_REWARD and MIN_WITHDRAWAL must be whole numbers.") from error
     if not token or not admins or not channels or reward < 0 or minimum < 1:
